@@ -5,12 +5,15 @@
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
-                <ColumnDefinition Width="450" />
-                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="350" />
+                <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
             <CheckBox IsChecked="{Binding done}" Grid.Column="0" Margin="0,10,0,10"/>
             <TextBlock Text="{Binding title}" Grid.Column="1" Margin="20,10,0,10"/>
-            <Button Content="Delete" Grid.Column="2" HorizontalAlignment="Right" Margin="20,10,0,10"  Command="{Binding DataContext.DeleteTaskCommand, RelativeSource={RelativeSource AncestorType={x:Type Window}}}" CommandParameter="{Binding}" />
+            <StackPanel Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="20,10,0,10">
+                <Button Content="Edit" Margin="0,0,10,0" Command="{Binding DataContext.EditTaskCommand, RelativeSource={RelativeSource AncestorType={x:Type Window}}}" CommandParameter="{Binding}" />
+                <Button Content="Delete" Command="{Binding DataContext.DeleteTaskCommand, RelativeSource={RelativeSource AncestorType={x:Type Window}}}" CommandParameter="{Binding}" />
+            </StackPanel>
         </Grid>
     </DataTemplate>
 </ResourceDictionary>
