@@ -9,10 +9,10 @@ namespace taskManagerWPF.Models
     {
         private List<TaskItem> _tasks = new List<TaskItem>();
 
-        public TaskItem AddTask(string title, string description)
+        public TaskItem AddTask(string title)
         {
 
-            var task = new TaskItem(title, description);
+            var task = new TaskItem(title);
 
             _tasks.Add(task);
 
