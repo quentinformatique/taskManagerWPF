@@ -35,7 +35,6 @@ namespace taskManagerWPF.ViewModels
             }
         }
 
-
         private void DeleteTask(object parameter)
         {
             var task = parameter as TaskItem;
