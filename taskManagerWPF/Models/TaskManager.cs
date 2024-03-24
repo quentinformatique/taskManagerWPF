@@ -7,22 +7,19 @@ namespace taskManagerWPF.Models
 {
     public class TaskManager
     {
-        private List<Task> _tasks = new List<Task>();
+        private List<TaskItem> _tasks = new List<TaskItem>();
 
-        public Task AddTask(string title, string description)
+        public TaskItem AddTask(string title, string description)
         {
 
-            var task = new Task(title, description)
-            {
-                Id = Guid.NewGuid()
-            };
+            var task = new TaskItem(title, description);
 
             _tasks.Add(task);
 
             return task;
         }
 
-        public List<Task> GetTasks()
+        public List<TaskItem> GetTasks()
         {
             return _tasks;
         }
