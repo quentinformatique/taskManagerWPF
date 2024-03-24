@@ -49,13 +49,13 @@ namespace taskManagerWPF.ViewModels
             var task = parameter as TaskItem;
             if (task != null)
             {
-                var dialog = new InputDialog("Edit Task", "Enter new task title:", task.title);
+                var dialog = new InputDialog("Edit Task", "Enter new task title:", task.Title);
                 if (dialog.ShowDialog() == true)
                 {
                     var newTitle = dialog.Answer;
                     if (!string.IsNullOrWhiteSpace(newTitle))
                     {
-                        task.title = newTitle;
+                        task.Title = newTitle;
                     }
                 }
             }
