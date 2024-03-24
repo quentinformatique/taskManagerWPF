@@ -5,8 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:taskManagerWPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="600"
+        ResizeMode="NoResize">
     <Grid>
-
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Label Content="Tasks :" HorizontalAlignment="Left" Margin="30,30,0,0" VerticalAlignment="Top"/>
+        <ListView d:ItemsSource="{d:SampleData ItemCount=5}" Margin="30,54" Width="300" HorizontalAlignment="Left">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button Grid.Column="1" Content="Add task" HorizontalAlignment="Left" Margin="75,76,0,0" VerticalAlignment="Top" Height="33" Width="165"/>
+        <Button Grid.Column="1" Content="Delete task" HorizontalAlignment="Left" Margin="75,136,0,0" VerticalAlignment="Top" Height="33" Width="165"/>
     </Grid>
 </Window>
