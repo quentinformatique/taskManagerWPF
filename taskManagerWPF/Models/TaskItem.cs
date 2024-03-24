@@ -2,13 +2,12 @@
 {
     public class TaskItem
     {
-        private int id;
+        public string title { get; set; }
 
-        private String title;
+        public string description { get; set; }
 
-        private String description;
-
-        private bool done;
+        public bool done { get; set; }
+        public Guid id { get; internal set; }
 
         public TaskItem(String title, String description) 
         {
@@ -19,13 +18,8 @@
             this.title = title;
             this.description = description;
             done = false;
+            id = Guid.NewGuid();
         }
 
-        public string Title { get; set; }
-
-        public string Description { get; set; }
-
-        public bool Done { get; set; }
-        public Guid Id { get; internal set; }
     }
 }
