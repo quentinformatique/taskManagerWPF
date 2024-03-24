@@ -1,7 +1,7 @@
 ﻿using System.Collections.ObjectModel;
-using System.Threading.Tasks;
 using System.Windows.Input;
 using taskManagerWPF.Models;
+using taskManagerWPF.Views;
 
 namespace taskManagerWPF.ViewModels
 {
@@ -10,6 +10,7 @@ namespace taskManagerWPF.ViewModels
         public ObservableCollection<TaskItem> TaskItems { get; set; }
         public ICommand AddTaskCommand { get; set; }
         public ICommand DeleteTaskCommand { get; set; }
+        public ICommand EditTaskCommand { get; set; }
 
 
         public TaskManagerViewModel()
@@ -17,13 +18,23 @@ namespace taskManagerWPF.ViewModels
             TaskItems = new ObservableCollection<TaskItem>();
             AddTaskCommand = new RelayCommand(AddTask);
             DeleteTaskCommand = new RelayCommand(DeleteTask);
+            EditTaskCommand = new RelayCommand(EditTask);
         }
 
 
         private void AddTask(object parameter)
         {
-            TaskItems.Add(new TaskItem("title"));
+            var dialog = new InputDialog("Add Task", "Enter task title:");
+            if (dialog.ShowDialog() == true)
+            {
+                var title = dialog.Answer;
+                if (!string.IsNullOrWhiteSpace(title))
+                {
+                    TaskItems.Add(new TaskItem(title));
+                }
+            }
         }
+
 
         private void DeleteTask(object parameter)
         {
@@ -33,6 +44,24 @@ namespace taskManagerWPF.ViewModels
                 TaskItems.Remove(task);
             }
         }
+
+        private void EditTask(object parameter)
+        {
+            var task = parameter as TaskItem;
+            if (task != null)
+            {
+                var dialog = new InputDialog("Edit Task", "Enter new task title:", task.title);
+                if (dialog.ShowDialog() == true)
+                {
+                    var newTitle = dialog.Answer;
+                    if (!string.IsNullOrWhiteSpace(newTitle))
+                    {
+                        task.title = newTitle;
+                    }
+                }
+            }
+        }
+
 
     }
 }
