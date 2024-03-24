@@ -19,7 +19,7 @@ namespace taskManagerWPF.ViewModels
 
         private void AddTask(object parameter)
         {
-            TaskItems.Add(new TaskItem("title", "desc"));
+            TaskItems.Add(new TaskItem("title"));
         }
 
         private void DeleteTask(object parameter)

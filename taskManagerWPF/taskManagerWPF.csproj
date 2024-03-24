@@ -9,6 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="Views\templates\" />
     <Folder Include="Ressources\" />
   </ItemGroup>
 
