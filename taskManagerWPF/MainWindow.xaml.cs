@@ -8,6 +8,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using taskManagerWPF.ViewModels;
 
 namespace taskManagerWPF
 {
@@ -16,14 +17,13 @@ namespace taskManagerWPF
     /// </summary>
     public partial class MainWindow : Window
     {
+        private TaskManagerViewModel _viewModel;
+
         public MainWindow()
         {
             InitializeComponent();
-        }
-
-        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
+            _viewModel = new TaskManagerViewModel();
+            DataContext = _viewModel;
         }
     }
 }
