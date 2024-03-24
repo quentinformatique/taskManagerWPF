@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace taskManagerWPF.Models
+﻿namespace taskManagerWPF.Models
 {
-    public class Task
+    public class TaskItem
     {
         private int id;
 
@@ -17,7 +10,7 @@ namespace taskManagerWPF.Models
 
         private bool done;
 
-        public Task(String title, String description) 
+        public TaskItem(String title, String description) 
         {
             if (title == null || title == "") throw new ArgumentNullException("title cannot be null or empty");
             if (description == null) throw new ArgumentNullException("description cannoit be null");
