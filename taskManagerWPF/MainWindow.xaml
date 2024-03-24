@@ -7,20 +7,19 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="600"
         ResizeMode="NoResize">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Views/templates/TaskTemplate.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <Label Content="Tasks :" HorizontalAlignment="Left" Margin="30,30,0,0" VerticalAlignment="Top"/>
-        <ListView  ItemsSource="{Binding TaskItems}"  Margin="30,54,0,54" Width="245" HorizontalAlignment="Left">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn DisplayMemberBinding="{Binding title}" />
-                </GridView>
-            </ListView.View>
-        </ListView>
-        <Button Grid.Column="1" Content="Add task" HorizontalAlignment="Left" Margin="75,76,0,0" VerticalAlignment="Top" Height="33" Width="165" Command="{Binding AddTaskCommand}"/>
-        <Button Grid.Column="1" Content="Delete task" HorizontalAlignment="Left" Margin="75,136,0,0" VerticalAlignment="Top" Height="33" Width="165" Command="{Binding DeleteTaskCommand}"/>
+        <ListView Margin="20,61,10,123" ItemsSource="{Binding TaskItems}" ItemTemplate="{StaticResource TaskTemplate}" Height="250"/>
+        <Button Content="Add task" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="222,0,0,47" Height="33" Width="166" Command="{Binding AddTaskCommand}"/>
     </Grid>
 </Window>
