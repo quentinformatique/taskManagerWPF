@@ -9,6 +9,7 @@ namespace taskManagerWPF.Models
 {
     class Task
     {
+        private int id;
 
         private String title;
 
@@ -16,12 +17,14 @@ namespace taskManagerWPF.Models
 
         private bool done;
 
-        public Task(String title, String description) 
+        public Task(int id, String title, String description) 
         {
             this.title = title;
             this.description = description;
             done = false;
         }
+
+        public int getId() { return id; }
 
         public string Title { get; set; }
 
