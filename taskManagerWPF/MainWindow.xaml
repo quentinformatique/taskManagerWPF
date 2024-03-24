@@ -18,7 +18,7 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <Label Content="Tasks :" HorizontalAlignment="Left" Margin="30,30,0,0" VerticalAlignment="Top"/>
+        <Label Content="Tasks :" HorizontalAlignment="Left" Margin="20,30,0,0" VerticalAlignment="Top"/>
         <ListView Margin="20,61,10,123" ItemsSource="{Binding TaskItems}" ItemTemplate="{StaticResource TaskTemplate}" Height="250"/>
         <Button Content="Add task" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="222,0,0,47" Height="33" Width="166" Command="{Binding AddTaskCommand}"/>
     </Grid>
