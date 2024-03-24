@@ -22,6 +22,9 @@ namespace taskManagerWPF.Models
             return task;
         }
 
-        // ...
+        public List<Task> GetTasks()
+        {
+            return _tasks;
+        }
     }
 }
