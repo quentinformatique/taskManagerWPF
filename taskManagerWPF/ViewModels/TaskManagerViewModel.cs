@@ -6,20 +6,20 @@ namespace taskManagerWPF.ViewModels
 {
     internal class TaskManagerViewModel
     {
-        public ObservableCollection<TaskItem> Tasks { get; set; }
+        public ObservableCollection<TaskItem> TaskItems { get; set; }
         public ICommand AddTaskCommand { get; set; }
         public ICommand DeleteTaskCommand { get; set; }
 
         public TaskManagerViewModel()
         {
-            Tasks = new ObservableCollection<TaskItem>();
+            TaskItems = new ObservableCollection<TaskItem>();
             AddTaskCommand = new RelayCommand(AddTask);
             DeleteTaskCommand = new RelayCommand(DeleteTask);
         }
 
         private void AddTask(object parameter)
         {
-            Tasks.Add(new TaskItem("Nouvelle tâche", "description"));
+            TaskItems.Add(new TaskItem("title", "desc"));
         }
 
         private void DeleteTask(object parameter)
