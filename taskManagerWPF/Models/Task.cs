@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace taskManagerWPF.Models
 {
-    class Task
+    public class Task
     {
         private int id;
 
@@ -17,19 +17,22 @@ namespace taskManagerWPF.Models
 
         private bool done;
 
-        public Task(int id, String title, String description) 
+        public Task(String title, String description) 
         {
+            if (title == null || title == "") throw new ArgumentNullException("title cannot be null or empty");
+            if (description == null) throw new ArgumentNullException("description cannoit be null");
+
+
             this.title = title;
             this.description = description;
             done = false;
         }
-
-        public int getId() { return id; }
 
         public string Title { get; set; }
 
         public string Description { get; set; }
 
         public bool Done { get; set; }
+        public Guid Id { get; internal set; }
     }
 }
